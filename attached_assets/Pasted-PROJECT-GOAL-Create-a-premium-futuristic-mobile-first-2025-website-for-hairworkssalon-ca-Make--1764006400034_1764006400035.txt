@@ -1,0 +1,111 @@
+PROJECT GOAL:
+Create a premium, futuristic, mobile-first 2025 website for hairworkssalon.ca.
+Make it ultra-modern, 3D-enabled, highly animated, luxury-brand feel, conversion-focused, and accessible. Retain the salon's existing gallery images exactly as-is.
+
+TECH STACK & TOOLS:
+- React + Vite (single repo, pages: Home, Services, About, Gallery, Contact, Book)
+- TailwindCSS (utility-first; include config for custom fonts/colors)
+- react-three-fiber + drei for WebGL 3D elements (low-poly hair or abstract flowing strand model; provide fallback image for low-perf)
+- GSAP + ScrollTrigger for advanced scroll animations & parallax
+- Framer Motion for component micro-animations
+- Lottie for vector motion (loader, icons)
+- Optional: WebGL shader backgrounds (simple noise + color shift) for hero
+- Form handling: Replit server endpoint / Formspree fallback; client-side validation with accessible error states
+- Lazy-loading, responsive image srcset, and intersection-observer for performance
+- SEO meta, Open Graph, favicon, structured data (JSON-LD for LocalBusiness)
+- Accessibility: keyboard nav, aria-labels, focus styles, color contrast checks
+
+VISUAL & UX GUIDELINES:
+- Mobile-first breakpoints: base → md (tablet) → lg (desktop). All layouts optimized for thumb reach.
+- Color palette: deep charcoal (#0f1115) + pearl/ivory accents + warm gold (#D4AF37) for CTA highlights + neon gradient accent for micro-interactions.
+- Typography: premium sans for headings (e.g., "Satoshi/Neue Haas" style) + elegant serif for accent (optional). Large headlines on mobile (responsive clamp).
+- Layout language: asymmetric grids, slanted/diagonal section dividers, layered parallax imagery, floating 3D element anchored to hero.
+- Glassmorphism panels with subtle blur and chrome borders for service cards.
+- Interactive hero: left or center 3D orbital/flowing hair-strand model that reacts to pointer and scroll (touch-friendly).
+- Backgrounds: subtle animated gradient + parallax layers + optional noise overlay.
+- Marquee: tasteful, slow marquee showing client brands/testimonials/services — hardware accelerated CSS transform with pause on hover/tap.
+- Microinteractions: button hover = gold glow + micro-tilt; CTA press = scale down with ripple (accessible reduced motion option).
+- CTA buttons: luxurious pill/rounded rectangle with small icon and animated gold shine on hover. All CTAs prominent above the fold on mobile.
+- Gallery: keep same images, present as 3D carousel + masonry grid. Provide fullscreen lightbox with swipe gestures and keyboard arrows.
+- Forms: modern multi-step contact/booking form (phone/email first step, service selection, date/time, notes). Floating labels, inline validation, success state with animated confetti/Lottie and calendar link to add appointment.
+
+PAGES & KEY INTERACTIONS:
+1. HOME (Hero, Services preview, Why Us, Testimonials marquee, Gallery strip, CTA banner, Footer)
+   - Hero: 3D model + short tagline + primary CTA "Book an Experience" + secondary "View Gallery"
+   - Scroll-triggered animated section reveal (staggered)
+2. SERVICES (interactive cards)
+   - Each service card reveals price-range, timeline, and icon animation; open modal with booking CTA
+3. ABOUT (brand story)
+   - Timeline with parallax images, team cards with hover 3D micro-tilt
+4. GALLERY
+   - Masonry + 3D carousel view. Keep images identical to current site. Each image opens responsive lightbox with metadata overlay.
+5. CONTACT / BOOK
+   - Modern multi-step booking form, map embed (static image fallback), stylized contact info and social links, phone CTA for mobile, WhatsApp quick action, Teams/email link.
+6. BOOK — direct booking flow with available slots (mock) and "Request Confirmation" via server endpoint.
+
+PERFORMANCE & PROGRESSIVE ENHANCEMENT:
+- Provide fallback static hero image and simple CSS-only experience if WebGL not supported.
+- Use adaptive image sizes, modern formats (AVIF/WebP), and preconnect/prefetch critical assets.
+- Include "reduced motion" user preference option; provide accessible focus states everywhere.
+
+ANIMATIONS & MOTION SPEC:
+- Use GSAP ScrollTrigger for section pinning & parallax layers.
+- Use react-three-fiber for interactive 3D and subtle physics-like motion.
+- Lottie for logos/loader and success micro-animations.
+- Framer Motion for UI transitions.
+- Include code comments for adjusting durations/easings and how to disable heavy effects.
+
+DEVELOPER NOTES / FILE STRUCTURE (generate scaffold):
+/src
+  /components
+    Hero.jsx
+    ThreeHeroCanvas.jsx
+    ServiceCard.jsx
+    MarqueeTestimonials.jsx
+    GalleryGrid.jsx
+    Lightbox.jsx
+    ContactForm.jsx
+    CTAButton.jsx
+    Footer.jsx
+  /pages
+    Home.jsx
+    Services.jsx
+    About.jsx
+    Gallery.jsx
+    Contact.jsx
+    Book.jsx
+  /styles
+    tailwind.config.js
+    globals.css
+  /lib
+    api.js (contact endpoint)
+  /assets
+    fonts/, images/, lottie/
+vite.config.js
+package.json (with scripts: dev, build, preview, lint)
+
+DELIVERABLES:
+- Full working Replit project scaffold with components above and sample content.
+- Ready-to-deploy settings for Replit, env examples, and contact endpoint instructions.
+- A short README with how to swap gallery images (confirm keep same), how to update 3D model or replace with a branded GLTF, and how to enable analytics.
+- Provide one clickable prototype demo link (Replit preview) and minimal CMS notes (Netlify CMS / Sanity optional).
+
+UX COPY (short, premium tone — paste in components):
+- Hero Headline: "HairWorks Salon — Bespoke Hair. Elevated Experience."
+- Subhead: "Precision styling, modern craft — book your transformation."
+- Primary CTA: "Book an Experience"
+- Secondary CTA: "View Gallery"
+
+ACCESSIBILITY:
+- All images must have descriptive alt text (use existing gallery alt text if present).
+- Forms must have labels, aria-invalid states, and error messages that are screen-reader friendly.
+- Respect prefers-reduced-motion; provide keyboard focus ring styles.
+
+EXTRAS:
+- Add social icons (Instagram, Facebook, YouTube, WhatsApp) with share intent and deep links. Show follower counts (optional).
+- Add sticky luxury CTA on mobile bottom bar: "Book Now — 10% off first visit" (toggleable).
+- Add structured data JSON-LD for LocalBusiness with address/phone/hours.
+
+IMPORTANT: The design must NEVER look basic or old. No standard Bootstrap look. Use asymmetric layouts, 3D accents, elegant spacing, and premium microinteraction language. Provide developer comments showing exactly which lines to edit to change colors, swap models, and toggle heavy animations.
+
+END.
